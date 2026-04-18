@@ -103,9 +103,9 @@ const About = () => {
             </motion.div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.15fr)_minmax(0,1fr)] items-stretch">
             <motion.div
-              className="lg:col-span-1 p-8 bg-card/80 backdrop-blur-sm rounded-sm border border-border/50"
+              className="h-full p-8 bg-card/80 backdrop-blur-sm rounded-sm border border-border/50"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -131,50 +131,73 @@ const About = () => {
               </div>
             </motion.div>
 
-            <div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
-              <motion.div
-                className="p-8 bg-card/80 backdrop-blur-sm rounded-sm border border-border/50"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.55 }}
-              >
-                <p className="text-label text-accent mb-6">Key Numbers</p>
-                <div className="grid grid-cols-2 gap-6 items-start">
-                  {[
-                    { num: "15+", label: "Years" },
-                    { num: "98%", label: "On-Time" },
-                    { num: "50+", label: "Suppliers" },
-                    { num: "5", label: "Languages" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="group flex flex-col items-center text-center">
-                      <p className="font-display text-4xl font-semibold leading-none group-hover:text-accent transition-colors duration-500 min-h-[56px]">
-                        {stat.num}
-                      </p>
-                      <p className="text-label text-muted-foreground/60 mt-3 font-medium tracking-wide">{stat.label}</p>
-                    </div>
-                  ))}
+            <motion.div
+              className="h-full p-8 bg-card/80 backdrop-blur-sm rounded-sm border border-border/50"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.55 }}
+            >
+              <p className="text-label text-accent mb-6">Key Numbers</p>
+              <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+                <div className="group flex flex-col items-start text-left">
+                  <p className="flex min-h-[56px] items-end gap-[1px] text-foreground transition-colors duration-500 group-hover:text-accent">
+                    <span className="font-signature text-4xl leading-none tracking-tight lining-nums">15</span>
+                    <span className="translate-y-[-2px] font-body text-[2rem] font-semibold leading-none">+</span>
+                  </p>
+                  <p className="mt-3 font-body text-label text-muted-foreground/60">
+                    Years
+                  </p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="p-8 bg-card/80 backdrop-blur-sm rounded-sm border border-border/50"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.65 }}
-              >
-                <p className="text-label text-accent mb-4">Tools &amp; Tech</p>
-                <div className="flex flex-wrap gap-2">
-                  {tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="text-xs text-foreground/70 px-3 py-1.5 border border-border rounded-full hover:border-accent/40 hover:text-accent transition-all duration-300 font-body font-medium"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+                <div className="group flex flex-col items-start text-left">
+                  <p className="flex min-h-[56px] items-end gap-[1px] text-foreground transition-colors duration-500 group-hover:text-accent">
+                    <span className="font-signature text-4xl leading-none tracking-tight lining-nums">98</span>
+                    <span className="translate-y-[-2px] font-body text-[2rem] font-semibold leading-none">%</span>
+                  </p>
+                  <p className="mt-3 font-body text-label text-muted-foreground/60">
+                    On-Time
+                  </p>
                 </div>
-              </motion.div>
-            </div>
+
+                <div className="group flex flex-col items-start text-left">
+                  <p className="flex min-h-[56px] items-end gap-[1px] text-foreground transition-colors duration-500 group-hover:text-accent">
+                    <span className="font-signature text-4xl leading-none tracking-tight lining-nums">50</span>
+                    <span className="translate-y-[-2px] font-body text-[2rem] font-semibold leading-none">+</span>
+                  </p>
+                  <p className="mt-3 font-body text-label text-muted-foreground/60">
+                    Suppliers
+                  </p>
+                </div>
+
+                <div className="group flex flex-col items-start text-left">
+                  <p className="min-h-[56px] font-signature text-4xl leading-none tracking-tight lining-nums text-foreground transition-colors duration-500 group-hover:text-accent">
+                    5
+                  </p>
+                  <p className="mt-3 font-body text-label text-muted-foreground/60">
+                    Languages
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="h-full p-8 bg-card/80 backdrop-blur-sm rounded-sm border border-border/50"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.65 }}
+            >
+              <p className="text-label text-accent mb-4">Tools &amp; Tech</p>
+              <div className="flex flex-wrap content-start gap-2">
+                {tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="text-xs text-foreground/70 px-3 py-1.5 border border-border rounded-full hover:border-accent/40 hover:text-accent transition-all duration-300 font-body font-medium"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

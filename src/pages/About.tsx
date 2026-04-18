@@ -10,6 +10,12 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const topStats = [
+    { value: "15", suffix: "+", label: "Years Experience" },
+    { value: "50", suffix: "+", label: "Global Suppliers" },
+    { value: "98", suffix: "%", label: "On-Time Delivery" },
+    { value: "20", suffix: "+", label: "Teams Led" },
+  ];
 
   return (
     <motion.div className="min-h-screen bg-background" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
@@ -38,12 +44,7 @@ const About = () => {
       <section className="py-6 md:py-8">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { value: "15+", label: "Years Experience" },
-              { value: "50+", label: "Global Suppliers" },
-              { value: "98%", label: "On-Time Delivery" },
-              { value: "20+", label: "Teams Led" },
-            ].map((item, i) => (
+            {topStats.map((item, i) => (
               <motion.div
                 key={item.label}
                 className="rounded-sm border border-border/60 bg-card/55 backdrop-blur-sm px-5 py-4"
@@ -51,7 +52,14 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
               >
-                <p className="font-display text-2xl md:text-3xl font-semibold leading-none">{item.value}</p>
+                <p className="flex min-h-[40px] items-end gap-[1px] text-foreground">
+                  <span className="font-signature text-2xl md:text-3xl leading-none tracking-tight lining-nums">
+                    {item.value}
+                  </span>
+                  <span className="translate-y-[-1px] font-body text-[1.45rem] font-semibold leading-none md:text-[1.7rem]">
+                    {item.suffix}
+                  </span>
+                </p>
                 <p className="mt-2 text-label text-muted-foreground/80">{item.label}</p>
               </motion.div>
             ))}
@@ -108,8 +116,10 @@ const About = () => {
                     { num: "20+", label: "Team members led" },
                     { num: "5", label: "Languages spoken" },
                   ].map((stat) => (
-                    <div key={stat.label} className="grid grid-cols-[auto_1fr] items-center gap-4 group">
-                      <span className="font-display text-2xl font-semibold tabular-nums w-14 text-right shrink-0 group-hover:text-accent transition-colors duration-500">{stat.num}</span>
+                    <div key={stat.label} className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-4 group">
+                      <span className="font-display text-2xl font-semibold tabular-nums lining-nums w-[5.5rem] text-right shrink-0 group-hover:text-accent transition-colors duration-500">
+                        {stat.num}
+                      </span>
                       <span className="text-muted-foreground text-sm font-body">{stat.label}</span>
                     </div>
                   ))}
