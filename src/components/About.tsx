@@ -8,7 +8,8 @@ const About = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const tools = ["SAP", "Odoo", "Power BI", "Oracle", "SQL", "Databricks", "Blue Beam", "Asana", "Slack", "Advanced Excel"];
+  const tools = ["SAP", "Odoo", "Oracle", "Blue Beam", "Asana", "Slack", "Advanced Excel"];
+  const tech = ["Power BI", "SQL", "Databricks"];
 
   return (
     <section className="py-20 md:py-28 bg-secondary/50 relative overflow-hidden noise" ref={ref}>
@@ -186,16 +187,34 @@ const About = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.65 }}
             >
-              <p className="text-label text-accent mb-4">Tools &amp; Tech</p>
-              <div className="flex flex-wrap content-start gap-2">
-                {tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="text-xs text-foreground/70 px-3 py-1.5 border border-border rounded-full hover:border-accent/40 hover:text-accent transition-all duration-300 font-body font-medium"
-                  >
-                    {tool}
-                  </span>
-                ))}
+              <div className="space-y-6">
+                <div>
+                  <p className="text-label text-accent mb-4">Tools &amp; ERP</p>
+                  <div className="flex flex-wrap content-start gap-2">
+                    {tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="text-xs text-foreground/70 px-3 py-1.5 border border-border rounded-full hover:border-accent/40 hover:text-accent transition-all duration-300 font-body font-medium"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-label text-accent mb-4">Tech</p>
+                  <div className="flex flex-wrap content-start gap-2">
+                    {tech.map((item) => (
+                      <span
+                        key={item}
+                        className="text-xs text-foreground/70 px-3 py-1.5 border border-border rounded-full hover:border-accent/40 hover:text-accent transition-all duration-300 font-body font-medium"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -46,11 +46,11 @@ const Contact = () => {
               >
                 Let&apos;s Build Something
                 <br />
-                <span className="italic font-normal text-muted-foreground">Together</span>
+                <span className="italic font-normal">Together</span>
               </motion.h2>
 
               <motion.p
-                className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-2xl font-body"
+                className="mt-6 text-foreground text-lg leading-relaxed max-w-2xl font-body"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.35 }}
@@ -65,7 +65,7 @@ const Contact = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.5 }}
               >
-                <div className="glass rounded-sm p-5 text-left group">
+                <div className="bg-card/90 backdrop-blur-sm rounded-sm p-5 text-left group">
                   <Mail
                     className="w-5 h-5 text-accent mb-3 group-hover:scale-110 transition-transform duration-300"
                     strokeWidth={1.5}
@@ -79,7 +79,7 @@ const Contact = () => {
                   </a>
                 </div>
 
-                <div className="glass rounded-sm p-5 text-left group">
+                <div className="bg-card/90 backdrop-blur-sm rounded-sm p-5 text-left group">
                   <Phone
                     className="w-5 h-5 text-accent mb-3 group-hover:scale-110 transition-transform duration-300"
                     strokeWidth={1.5}
@@ -93,7 +93,7 @@ const Contact = () => {
                   </a>
                 </div>        
 
-                <div className="glass rounded-sm p-5 text-left group">
+                <div className="bg-card/90 backdrop-blur-sm rounded-sm p-5 text-left group">
                   <MapPin
                     className="w-5 h-5 text-accent mb-3 group-hover:scale-110 transition-transform duration-300"
                     strokeWidth={1.5}
@@ -111,7 +111,7 @@ const Contact = () => {
               >
                 <a
                   href="/contact"
-                  className="group inline-flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-body text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-accent/90 transition-all duration-300 hover:gap-4 glow-pulse"
+                  className="group inline-flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-body text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-accent/90 transition-all duration-300 hover:gap-4"
                 >
                   Start a Conversation
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -147,7 +147,7 @@ const Contact = () => {
                 />
               </div>
 
-              <div className="img-zoom rounded-sm overflow-hidden h-60 mt-8 border border-border/40">
+              <div className="img-zoom rounded-sm overflow-hidden h-60 border border-border/40">
                 <img
                   src={containersImg}
                   alt="Shipping container yard"

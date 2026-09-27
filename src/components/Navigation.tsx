@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
@@ -17,24 +17,11 @@ const navLinks = [
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(() =>
-    typeof window !== "undefined" ? window.scrollY : 0,
-  );
 
   const { pathname } = useLocation();
   const isHome = pathname === "/";
   const isDark = useResolvedDark();
-  const homeHeroMode = isHome && scrollY < 120;
-
-  useLayoutEffect(() => {
-    setScrollY(window.scrollY);
-  }, [pathname]);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const homeHeroMode = isHome;
 
   useEffect(() => {
     setOpen(false);
@@ -44,12 +31,11 @@ const Navigation = () => {
   const homeMutedTextClass = isDark
     ? "text-white hover:text-white"
     : "text-slate-900/72 hover:text-slate-950";
-  const showBrand = !isHome || scrollY > 120;
 
   return (
     <nav
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        "absolute inset-x-0 top-0 z-50 transition-all duration-500",
         homeHeroMode
           ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.42),rgba(15,23,42,0.12))]"
           : "bg-background/82 shadow-[0_16px_36px_-24px_rgba(15,23,42,0.45)]",
@@ -58,10 +44,7 @@ const Navigation = () => {
       <div className="mx-auto flex h-[78px] w-full max-w-[1540px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-14">
         <a
           href="/"
-          className={cn(
-            "shrink-0 transition-opacity duration-300",
-            !showBrand && "opacity-0 pointer-events-none",
-          )}
+          className="shrink-0"
         >
           <span
             className={cn(

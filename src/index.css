@@ -229,6 +229,16 @@
     }
   }
 
+  /* Day <-> night hero crossfade */
+  .hero-night {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .dark .hero-night {
+    opacity: 1;
+  }
+
   .hero-overlay {
     @apply absolute inset-0 bg-black/20;
   }

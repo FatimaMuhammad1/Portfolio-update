@@ -52,10 +52,13 @@ const Services = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  <span className="block bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent [text-shadow:0_10px_30px_rgba(0,0,0,0.18)] dark:[text-shadow:0_14px_34px_rgba(2,6,23,0.75)]">
-                    Strategy to Execution
+                  <span className="block text-foreground">
+                    Strategy &
                   </span>
-                  <span className="mt-1 block font-serif text-[0.93em] italic font-normal text-foreground/55 dark:text-foreground/60">
+                  <span className="block text-foreground">
+                    Execution
+                  </span>
+                  <span className="mt-2 block font-serif text-[0.93em] italic font-normal text-foreground/60 dark:text-foreground/60">
                     End-to-End Impact
                   </span>
                 </motion.h2>
@@ -79,12 +82,17 @@ const Services = () => {
               </div>
 
               <motion.div
-                className="flex items-end"
+                className="flex flex-col items-start space-y-32"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.4 }}
               >
-                <p className="text-muted-foreground text-lg leading-relaxed max-w-md font-body">
+                <p className="text-muted-foreground text-lg leading-relaxed max-w-[30rem] font-body">
+                  Technology-led planning, live operational visibility, and data-backed
+                  decisions that keep complex supply chains moving.
+                </p>
+
+                <p className="text-muted-foreground text-lg leading-relaxed max-w-[30rem] font-body">
                   A proven track record of transforming operations, cutting costs, and
                   building scalable systems across the Gulf region and beyond.
                 </p>
@@ -117,7 +125,7 @@ const Services = () => {
                   height={1080}
                 />
               </div>
-              <div className="rounded-sm border border-border/50 bg-card/60 backdrop-blur-sm p-5 flex items-end">
+              <div className="rounded-sm border border-border/50 bg-card/60 backdrop-blur-sm p-5 flex items-start h-36 md:h-44">
                 <p className="text-sm text-muted-foreground leading-relaxed font-body">
                   Built across food trading, industrial supply chains, and cross-border
                   operations.
